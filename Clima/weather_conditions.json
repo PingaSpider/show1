@@ -1,0 +1,18 @@
+[
+    {"city": "Madrid", "temperature": 25},
+    {"city": "Valencia", "temperature": 23},
+    {"city": "Sevilla", "temperature": 27},
+    {"city": "Málaga", "temperature": 24},
+    {"city": "Granada", "temperature": 22},
+    {"city": "Burgos", "temperature": -5},
+    {"city": "León", "temperature": -4},
+    {"city": "Pamplona", "temperature": -6},
+    {"city": "Soria", "temperature": -3},
+    {"city": "Teruel", "temperature": -2},
+    {"city": "Córdoba", "temperature": 40},
+    {"city": "Zaragoza", "temperature": 38},
+    {"city": "Toledo", "temperature": 42},
+    {"city": "Badajoz", "temperature": 41},
+    {"city": "Murcia", "temperature": 39}
+  ]
+  

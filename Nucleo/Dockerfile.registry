@@ -1,0 +1,17 @@
+# Dockerfile para Registry
+FROM python:3.9
+
+WORKDIR /app
+
+COPY AD_Registry.py /app
+# Crea el directorio para los archivos de datos y asegura los permisos adecuados
+RUN mkdir -p /app/data && chmod 777 /app/data
+
+
+#Coloca el drones_registry.json en el volumen shared-data
+COPY drones_registry.json /app/data
+
+
+
+
+CMD ["python", "AD_Registry.py"]
