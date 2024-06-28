@@ -4,7 +4,6 @@ services:
   
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
-    hostname: zookeeper
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -14,7 +13,7 @@ services:
   
   kafka:
     image: confluentinc/cp-kafka:latest
-    container_name: kafka
+
     depends_on:
       - zookeeper
     ports:
@@ -31,9 +30,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
 
   registry:
-    build:
-      context: ./Nucleo
-      dockerfile: Dockerfile.registry
+    image: pingaspider/registry:latest
     ports:
       - "3333:3333"
     environment:
@@ -47,9 +44,7 @@ services:
 
 
   weather:
-    build:
-      context: ./Clima
-      dockerfile: Dockerfile
+    image: pingaspider/weather:latest
     ports:
       - "6666:6666" # Asumiendo que el servicio Weather escucha en el puerto 6666
     environment:
@@ -60,9 +55,7 @@ services:
     tty: true # asigna un pseudo-TTY
   
   engine:
-    build:
-      context: ./Nucleo
-      dockerfile: Dockerfile.engine
+    image: pingaspider/engine:latest
     environment:
       - HOST_ENGINE=engine
       - PORT_ENGINE=5555
@@ -83,9 +76,7 @@ services:
     tty: true # asigna un pseudo-TTY
  
   dron:
-    build:
-      context: .
-      dockerfile: Dron/Dockerfile
+    image: pingaspider/dron:latest
     environment:
       - HOST_REGISTRY=registry
       - PORT_REGISTRY=3333
